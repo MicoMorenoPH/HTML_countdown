@@ -1,0 +1,34 @@
+html
+<button onclick="startCount()">Start count!</button>
+<input type="text" id="txt">
+<button onclick="stopCount()">Stop count!</button>
+
+js
+var c = 2;
+var t;
+var timer_is_on = 0;
+
+
+function startCount() {
+    if (!timer_is_on) {
+        timer_is_on = 1;
+        timedCount();
+    }
+}
+
+function stopCount() {
+    clearTimeout(t);
+    timer_is_on = 0;
+}
+
+function timedCount() {
+    document.getElementById("txt").value = c;
+    c = c - 1;
+    if (c < 0) {
+    ..do your thing here
+    c = 20;
+    t = setTimeout(timedCount, 1000);
+    } else {
+        t = setTimeout(timedCount, 1000);
+    }
+}
